@@ -31,3 +31,17 @@ class AccountUpdateForm(FlaskForm):
             email = User.query.filter_by(email=email.data).first()
             if email:
                 raise ValidationError("That email is already taken please try different email!")
+
+
+class RequestResetForm(FlaskForm):
+    email = EmailField('Email address', [validators.DataRequired(), validators.Email()])
+    
+    reset = SubmitField('Reset')
+    
+   
+
+class ResetPassword(FlaskForm):
+    
+    password = PasswordField('Password',validators=[DataRequired(),Length(min=4,max=20)])
+    
+    new  = SubmitField('New Password')

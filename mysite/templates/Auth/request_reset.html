@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="text-center lg-heading my-4">Reset Password </h1>
+  <form action="" method="POST" accept-charset="utf-8">
+    {{ form.hidden_tag() }}
+    <div>
+      {% if form.email.errors %}
+      {% for error in form.email.errors %}
+      <div>
+        <input class="is-invalid my-2" type="text" name="email" id="" value="vh" />
+        <p class="error-feedback">{{ error }}</p>
+      </div>
+      {% endfor %}
+      {% else %}
+      {{ form.email(class="form-control my-4",placeholder="Email")}}
+      {% endif %}
+    </div>
+
+    <div class="left">
+      {{ form.reset(class="btn btn-danger my-4",placeholder="Reset")}}
+    </div>
+  
+  </form>
+  </div>
+{% endblock %}

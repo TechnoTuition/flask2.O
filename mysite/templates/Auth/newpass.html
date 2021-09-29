@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+  Set New Password
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="text-center lg-heading my-4">New Password </h1>
+  <form action="" method="POST" accept-charset="utf-8">
+    {{ form.hidden_tag() }}
+    <div>
+      {% if form.password.errors %}
+      {% for error in form.password.errors %}
+      <div>
+        <input class="is-invalid my-2" type="password" name="password" id="" value="vh" />
+        <p class="error-feedback">{{ error }}</p>
+      </div>
+      {% endfor %}
+      {% else %}
+      {{ form.password(class="form-control my-4",placeholder="New Password")}}
+      {% endif %}
+    </div>
+
+    <div class="left">
+      {{ form.new(class="btn btn-danger my-4",placeholder="New Password")}}
+    </div>
+  
+  </form>
+  </div>
+{% endblock %}

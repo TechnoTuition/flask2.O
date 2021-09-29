@@ -31,10 +31,11 @@
       {% endif %}
     </div>
     <div class="left">
-      {{ form.login(class="btn btn-success my-4",placeholder="Log In")}}
+      {{ form.login(class="btn btn-warning my-4",placeholder="Log In")}}
+      <a class="link mx-4"href="{{ url_for('auth.request_reset')}}">Forget </a>
     </div>
+    
   </form>
   <p class="text">Create to SiteX ? <span><a class="link" href="{{ url_for('auth.user_signup')}}">Register.</a></span></p>
 </div>
-
 {% endblock %}
