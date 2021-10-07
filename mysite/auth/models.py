@@ -13,7 +13,7 @@ class User(db.Model,UserMixin):
     email = db.Column(db.String(25),unique=True,nullable=False)
     password = db.Column(db.String(20),unique=False,nullable=False)
     image_file = db.Column(db.String(50),nullable=False,default="default.png")
-    posts = db.relationship('Post',backref='author',lazy=True)
+    posts = db.relationship('Post',backref='author',lazy=True,cascade='all, delete-orphan',                           single_parent=True)
     def __str__(self):
         return f"{self.name},{self.email},{self.password}"
         

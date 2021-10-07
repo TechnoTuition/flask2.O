@@ -8,6 +8,9 @@ from flask_login import login_required,login_user,current_user,logout_user
 from .utils import image_save,send_reset_email
 from flask_mail import Message
 from mysite.home.views import home
+
+from mysite.blog.models import Post
+
 auth = Blueprint('auth',__name__)
 
 #1--------login system----------------
@@ -60,7 +63,7 @@ def user_signup():
 def logout():
     logout_user()
     flash("You are Successfully Logout ","success")
-    return redirect(url_for("home.index"))
+    return redirect(url_for("auth.user_login"))
 
 #--------------accountinfo------------    
 @auth.route("/home",methods=['GET','POST'])
@@ -82,18 +85,20 @@ def home():
     image_file = url_for('static',filename= f'profile_pics/{current_user.image_file}')
     return render_template("auth/home.html",user=current_user,image_file=image_file,form=form)
 
+#----------Account Delete-------------
+
 @login_required
 @auth.route("delete/<int:id>",methods=['GET','POST'])
 def delete(id):
     
     if request.method == "POST":
         user = User.query.filter_by(id=id).first()
-        db.session.delete(user)
+        db.session.delete(user) 
         db.session.commit()
         logout_user()
         flash("your account hase been deleted ","success")
-        return redirect(url_for("blog.home"))
-    return redirect(url_for("blog.home"))
+        return redirect(url_for("auth.user_signup"))
+    return redirect(url_for("auth.user_signup"))
 
 #----------RequestReset-------------
 

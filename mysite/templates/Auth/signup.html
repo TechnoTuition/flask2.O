@@ -3,7 +3,8 @@
 {% endblock %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
-<div class="container">
+<div class="container-f">
+<div class="container-b">
   <h1 class="text-center lg-heading my-4">Signup Here</h1>
   <form action="{{ url_for('auth.user_signup') }}" method="POST" accept-charset="utf-8">
     {{ form.hidden_tag() }}
@@ -43,10 +44,11 @@
       {{ form.password(class="form-control my-4",placeholder="Password")}}
       {% endif %}
     </div>
-    <div class="left">
+    <div class="">
       {{ form.register(class="btn btn-success my-4",placeholder="Register")}}
     </div>
   </form>
   <p class="text">You Have Already Account ? <span><a class="link" href="{{ url_for('auth.user_login')}}">Sigin Here.</a></span></p>
+</div>
 </div>
 {% endblock %}

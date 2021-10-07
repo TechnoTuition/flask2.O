@@ -2,11 +2,15 @@
 /*
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu+Mono&family=Ubuntu:wght@300&display=swap');
 */
-
+:root {
+  --color: #00203FFF;
+  --background: #ADEFD1FF;
+}
 * {
   letter-spacing: 0.5px;
   box-sizing: border-box;
   /*font-family: 'Ubuntu', sans-serif;*/
+  text-decorations: none;
   font-family: 'Open Sans', sans-serif;
   
 }
@@ -49,11 +53,18 @@
   background: #d9534f;
   
 }
-
+.info{
+  color: #d9534f;
+  
+}
+.danger{
+  color: var(--color);
+  
+}
 
 /* container digsin */
-.container {
-  border: 1px solid #D6D5D6;
+.container-bn {
+ /* border: 1px solid #D6D5D6;*/
   min-height: 20%;
   text-align: center;
   width: 90%;
@@ -64,22 +75,50 @@
   margin: 0px auto;
   margin-top: 15px;
   margin-bottom: 5px;
+  
+}
+.container {
+  border: 1px solid #D6D5D6;
+  min-height: 20%;
+  text-align: center;
+  width: 90%;
+  border-radius: 2px;
+  padding: 10px;
+  z-index: -1;
+ 
+  margin: 0px auto;
+  margin-top: 10px;
+  margin-bottom: 5px;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
-
+.container-b {
+  border: 1.5px solid #D6D5D6;
+  min-height: 20%;
+  text-align: center;
+  width: 90%;
+  border-radius: 2px;
+  padding: 10px;
+  z-index: -1;
+ 
+  margin: 0px auto;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  
+}
 .container-f {
 
   height: 100%;
   min-height: 100%;
-  min-width: 100%;
+  min-width: 90%;
   margin: 20px auto;
   margin-top: 20px;
-  width: 100%;
+  width: 90%;
   border-radius: 2px;
-  padding: 10px;
+  padding: 1px;
+  padding-left: 0px;
   z-index: -1;
 
-  text-align: center;
+  text-align: left;
 
 }
 /* direction control */
@@ -87,7 +126,7 @@
 .left{
     font-size: 100%;
     margin-top: 1px;
-    width: 60%;
+    width: 90%;
     text-align: left;
     margin: auto;
 }
@@ -200,6 +239,38 @@
   transition: all 0.6s ease;
   box-shadow: 0 0 0 0.2rem rgba(13, 20, 225, 0.25);
 }
+.title {
+  font-size: 100%;
+  width: 100%;
+  border: 1px solid #A3A3A3;
+  padding: 1.8%;
+  padding-left: 3%;
+  border-radius: 2px;
+  outline: none;
+  color: #717172;
+}
+
+.title:focus {
+  transition: all 0.6s ease;
+  box-shadow: 0 0 0 0.2rem rgba(13, 20, 225, 0.25);
+}
+.textarea {
+  font-size: 100%;
+  width: 100%;
+  min-height: 160px;
+  border: 1px solid #A3A3A3;
+  padding: 1.8%;
+  padding-left: 3%;
+  border-radius: 2px;
+  outline: none;
+  color: #717172;
+}
+
+.textarea:focus {
+  transition: all 0.6s ease;
+  box-shadow: 0 0 0 0.2rem rgba(13, 20, 225, 0.25);
+}
+
 
 .text {
   
@@ -210,12 +281,17 @@
 }
 
 .link {
+  text-decoration: none;
   width: 100%;
   min-width: 100%;
   font-weight: bold;
   color: #4285FA;
+  
 }
 
+.link:hover{
+  text-decoration: underline;
+}
 /* headings class */
 .lg-heading {
   line-height: 24px;

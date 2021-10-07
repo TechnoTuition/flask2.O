@@ -3,7 +3,8 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container">
+<div class="container-f">
+  <div class="container-b">
     <h1 class="text-center lg-heading my-4">Reset Password </h1>
   <form action="" method="POST" accept-charset="utf-8">
     {{ form.hidden_tag() }}
@@ -20,10 +21,11 @@
       {% endif %}
     </div>
 
-    <div class="left">
+    <div class="">
       {{ form.reset(class="btn btn-danger my-4",placeholder="Reset")}}
     </div>
   
   </form>
   </div>
+ </div>
 {% endblock %}

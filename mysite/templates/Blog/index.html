@@ -1,4 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-  BLOG
+  <div class="container-bn">
+    
+     <div class="my-4 left">
+       <button class="btn btn-primary">
+         <a href="{{ url_for('blog.write')}}" >Write Post</a>
+       </button>
+     </div>
+     {% for post in user.posts %}
+        <div class="container-b">{{ post.title }}</div>
+      {% endfor %}
+
+   
+  </div>
 {% endblock %}

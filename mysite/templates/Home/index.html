@@ -3,9 +3,28 @@
 {% block title %}{% endblock %}
 
 {% block content %}
- <div class="conatiner">
-   <div class="text">{{ title }}</div>
-   <div>
-   </div>
- </div>
+
+  <div class="container-bn">
+    
+     {% for post in post %}
+        <div class="container-b">
+          <div>
+            <p class="left danger">Posted by: {{ post.author.name }}<small class="">  {{ post.post_created.strftime('%Y-%m-%d')}}</small></p>
+          </div>
+          <div>
+          
+            <h3 class="left">
+              <a href="{{ url_for('blog.read_post',id=post.id)}}" class="link danger">{{ post.title | truncate(50)  }}</a>
+            </3>
+          </div>
+          <div class="my-4">
+            <p class="left">{{ post.content | truncate(150)  }}</p>
+            
+          </div>
+          
+        </div>
+      {% endfor %}
+
+   
+  </div>
 {% endblock %}
