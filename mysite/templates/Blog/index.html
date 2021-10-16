@@ -8,9 +8,11 @@
        </button>
      </div>
      {% for post in user.posts %}
-        <div class="container-b">{{ post.title }}</div>
+               <div class="container-b inline">
+      <p class="left">{{ post.title }}</p>
+      <a href="{{url_for('blog.delete_post',id =post.id )}}"><img class="crud-image mx-2" src="{{ url_for('static',filename='image/blog/delete.png')}}" alt="" /></a><a class="" href="/"><img class="crud-image mx-2" src="{{ url_for('static',filename='image/blog/edit.png')}}" alt="" /></a>
+    </div>
       {% endfor %}
-
    
   </div>
 {% endblock %}

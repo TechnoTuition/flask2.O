@@ -40,3 +40,13 @@ def write():
 def read_post(id):
     post = Post.query.filter_by(id=id).first()
     return render_template("Blog/read_post.html",post=post)
+
+@login_required
+@blog.route("/delete/<int:id>/")
+def delete_post(id):
+    if request.method == "GET":
+        post = Post.query.filter_by(id=id).first()
+        db.session.delete(post)
+        db.session.commit()
+        return redirect(url_for("blog.home"))
+    return redirect(url_for("blog.home"))
